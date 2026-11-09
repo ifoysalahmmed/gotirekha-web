@@ -5,7 +5,7 @@ Code shared by the Gotirekha web sites (`@gotirekha/web`): the API client and se
 ## Use
 
 ```sh
-pnpm add git+https://github.com/ifoysalahmmed/gotirekha-web.git#v0.1.0
+pnpm add github:ifoysalahmmed/gotirekha-web#v0.1.0
 ```
 
 pnpm builds the package on install (`prepare`), so the installing site has to allow `@gotirekha/web` to run its build script. React, Mantine, React Query, react-router, react-hook-form, zod and `@gotirekha/schemas` are peer dependencies: the site installs them, so there is one copy of each.
