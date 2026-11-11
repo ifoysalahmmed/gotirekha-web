@@ -5,6 +5,7 @@ import {
 } from '@gotirekha/schemas';
 
 import {
+  announceSignIn,
   announceSignOut,
   apiSettings,
   endSession,
@@ -201,6 +202,7 @@ export const startSession = async (
   })) as AccessToken;
 
   setToken(issued.accessToken);
+  announceSignIn();
 };
 
 export const closeSession = async (): Promise<void> => {

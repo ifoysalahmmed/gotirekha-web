@@ -11,6 +11,8 @@ type Listener = () => void;
 
 const SIGNED_OUT = 'signed_out';
 
+const SIGNED_IN = 'signed_in';
+
 const listeners = new Set<Listener>();
 
 let settings: ApiSettings | null = null;
@@ -61,6 +63,10 @@ export const announceSignOut = (): void => {
   channel?.postMessage(SIGNED_OUT);
 };
 
+export const announceSignIn = (): void => {
+  channel?.postMessage(SIGNED_IN);
+};
+
 export const configureApi = (next: ApiSettings): void => {
   if (settings !== null) {
     throw new Error('configureApi runs once');
@@ -76,6 +82,12 @@ export const configureApi = (next: ApiSettings): void => {
   channel.addEventListener('message', (event: MessageEvent<unknown>) => {
     if (event.data === SIGNED_OUT) {
       endSession('signed_out');
+
+      return;
+    }
+
+    if (event.data === SIGNED_IN) {
+      window.location.reload();
     }
   });
 };

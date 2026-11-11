@@ -222,7 +222,7 @@ export const DataTable = <T,>({
           <Table.ScrollContainer minWidth={720} type="native">
             <Table
               aria-label={label}
-              verticalSpacing={10}
+              verticalSpacing={8}
               horizontalSpacing="md"
               borderColor="gray.1"
               highlightOnHover
